@@ -183,7 +183,7 @@
           const wsUrl =
             window.location.hostname === "localhost"
               ? `ws://localhost:8080/start_web_socket?username=${myUsername}`
-              : `wss://54.187.200.255/start_web_socket?username=${myUsername}`;
+              : `wss://${window.location.hostname}/start_web_socket?username=${myUsername}`;
 
           socket = new WebSocket(wsUrl);
 
