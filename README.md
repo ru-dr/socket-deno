@@ -46,13 +46,15 @@ If you want to run the application locally, follow these steps:
    ```sh
    git clone https://github.com/yourusername/socket-deno-template.git
    ```
+
 3. **Navigate to the project directory**:
 
    ```sh
    cd socket-deno-template
    ```
+
 4. **Start the development server**:
-   
+
    ```sh
    deno run --allow-net --allow-read server.js
    ```
@@ -69,6 +71,10 @@ To deploy the application on Render:
 2. **Connect the repository to your Render account** 🔗.
 3. **Configure the environment variable and commands** as described above 🛠️.
 4. **Deploy your service** 🚀.
+
+### Demo 🌐
+
+You can find a live demo of the application [here](https://socket-deno.onrender.com/).
 
 ### Contributing 🤝
 
