@@ -1,0 +1,9 @@
+{
+  "tasks": {
+    "dev": "deno run --allow-net --allow-read --watch server.js"
+  },
+  "imports": {
+    "@oak/oak": "jsr:@oak/oak@^16.1.0",
+    "@std/assert": "jsr:@std/assert@1"
+  }
+}
