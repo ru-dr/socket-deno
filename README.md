@@ -1,23 +1,21 @@
 # Socket Deno 🔌🦕
 
-## Overview
+## Overview 📚
 
 This is a simple WebSocket chat application template built with Deno 🦕 and the Oak 🐿️. It provides a starting point for developing real-time chat applications using WebSockets.
 
-## Features
+## Features ✨
 
-- Real-time messaging using WebSockets
-- Supports multiple chat rooms
-- Displays online users in each room
-- Powered by Deno and the Oak web framework
+- **Real-time messaging** using WebSockets 📡
+- **Supports multiple chat rooms** 🏠
+- **Displays online users** in each room 👥
+- Powered by **Deno** and the **Oak** web framework 🚀
 
-## Getting Started
+## Getting Started 🚀
 
-### Setup on Render
+### Setup on Render 🛠️
 
 **Deno**: The project uses Deno as the runtime. It's automatically installed during the build process.
-
-The following environment variable and commands are required for setting up and running the project on Render:
 
 - **Environment Variable**:
 
@@ -37,48 +35,49 @@ The following environment variable and commands are required for setting up and 
   export PATH="$DENO_INSTALL/bin:$PATH" && deno run --allow-net --allow-read server.js
   ```
 
-### Local Development
+### Local Development 💻
 
 If you want to run the application locally, follow these steps:
 
-1. Install [Deno](https://deno.land/) on your machine.
+1. **Install [Deno](https://deno.land/) on your machine** 🦕.
 
-2. Clone the repository:
+2. **Clone the repository**:
 
    ```sh
    git clone https://github.com/yourusername/socket-deno-template.git
    ```
-3. Navigate to the project directory:
+3. **Navigate to the project directory**:
 
    ```sh
    cd socket-deno-template
    ```
-4. Start the development server:
+4. **Start the development server**:
    
    ```sh
    deno run --allow-net --allow-read server.js
    ```
 
-### Usage
+### Usage 📡
 
 Once the application is running, you can connect to the WebSocket server using a client (e.g., a web browser or a WebSocket client tool). The application supports basic real-time messaging.
 
-### Deployment
+### Deployment 🚀
 
 To deploy the application on Render:
 
-1. Push your code to a GitHub repository.
-2. Connect the repository to your Render account.
-3. Configure the environment variable and commands as described above.
-4. Deploy your service.
+1. **Push your code to a GitHub repository** 🗂️.
+2. **Connect the repository to your Render account** 🔗.
+3. **Configure the environment variable and commands** as described above 🛠️.
+4. **Deploy your service** 🚀.
 
-### Contributing
+### Contributing 🤝
 
 Feel free to submit issues or pull requests if you find any bugs or have suggestions for improvements.
 
-### License
+### License 📄
 
 This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for more details.
 
 ---
+
 Happy coding with Deno! 🦕🔌
