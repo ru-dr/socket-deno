@@ -139,6 +139,16 @@
         font-weight: 300;
         color: #fff;
       }
+
+      /* additional */
+      .info-ts {
+        font-size: 1rem;
+        font-weight: 400;
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        padding: 10px;
+      }
     </style>
   </head>
   <body>
@@ -146,7 +156,7 @@
       <div class="welcome-container">
         <div class="main-title">Socket-Deno &#128268; &#x1F995;</div>
         <div class="welcome">
-          <input type="text" id="username" placeholder="Enter text" />
+          <input type="text" id="username" placeholder="Enter Username" />
           <button id="submit-username">Submit</button>
         </div>
       </div>
@@ -158,6 +168,7 @@
           <div id="users"></div>
         </div>
       </div>
+      <p class="info-ts">Powered by Deno &#x1F995; + Oak &#128063;</p>
     </div>
     <script>
       let socket;
