@@ -181,7 +181,7 @@
           document.getElementById("data").disabled = false;
 
           socket = new WebSocket(
-            `ws://54.187.200.255/start_web_socket?username=${myUsername}`
+            `wss://54.187.200.255/start_web_socket?username=${myUsername}`
           );
 
           socket.onopen = () => {
