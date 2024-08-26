@@ -1,21 +1,238 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <title>Node Chat App</title>
-    <script src="/public/app.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Socket-Deno &#128268; &#x1F995;</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+      body {
+        font-family: "Inter", sans-serif;
+        height: 100vh;
+        width: 100vw;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+        background-color: #0b090a;
+        color: #fff;
+      }
+
+      .main-con {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        font-weight: 700;
+        font-size: 5rem;
+      }
+
+      .main-title {
+        font-size: 5rem;
+        font-weight: 700;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+
+      .welcome-container {
+        width: 30%;
+        height: fit-content;
+      }
+
+      .welcome {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        background-color: #1a1a1d;
+        border-radius: 10px;
+      }
+
+      .welcome input,
+      .welcome button {
+        font-family: "Inter", sans-serif;
+        padding: 10px;
+        margin: 10px;
+        font-size: 1rem;
+        font-weight: 700;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .welcome button {
+        background-color: #0b090a;
+        color: #fff;
+        cursor: pointer;
+      }
+
+      .conv {
+        display: none;
+        width: 50%;
+        height: 50%;
+        background-color: #1a1a1d;
+        border-radius: 10px;
+        padding: 20px;
+        overflow-y: auto;
+        flex-direction: column;
+      }
+
+      #conversation {
+        flex-grow: 1;
+        overflow-y: auto;
+        border: 2px solid #fff;
+        border-radius: 10px;
+        font-weight: 300;
+        color: #fff;
+        margin-bottom: 10px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .message {
+        font-size: 1rem;
+      }
+
+      #conversation .message:first-child {
+        margin-top: 0;
+      }
+
+      .username {
+        font-weight: bold;
+        color: #bdff00;
+      }
+
+      .message-text {
+        color: white;
+      }
+
+      .conv input {
+        font-family: "Inter", sans-serif;
+        padding: 10px;
+        font-size: 1rem;
+        font-weight: 700;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .conn-usrs {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        padding: 20px;
+        background-color: #1a1a1d;
+        border: 2px solid #fff;
+        border-radius: 10px;
+        margin-top: 20px;
+        color: #bdff00;
+        width: fit-content;
+        font-size: 1rem;
+      }
+
+      #users {
+        font-weight: 300;
+        color: #fff;
+      }
+    </style>
   </head>
   <body>
-    <div style="text-align: center">
-      <div>
-        <b>Users</b>
-        <hr />
-        <div id="users"></div>
-        <hr class="visible-xs visible-sm" />
+    <div class="main-con">
+      <div class="welcome-container">
+        <div class="main-title">Socket-Deno &#128268; &#x1F995;</div>
+        <div class="welcome">
+          <input type="text" id="username" placeholder="Enter text" />
+          <button id="submit-username">Submit</button>
+        </div>
       </div>
-      <div>
-        <input id="data" placeholder="send message" />
-        <hr />
+      <div class="conv">
         <div id="conversation"></div>
+        <input id="data" placeholder="Send message" disabled />
+        <div class="conn-usrs">
+          <div>Connected users:</div>
+          <div id="users"></div>
+        </div>
       </div>
     </div>
+    <script>
+      let socket;
+
+      document
+        .getElementById("submit-username")
+        .addEventListener("click", () => {
+          const myUsername =
+            document.getElementById("username").value || "Anonymous";
+          document.getElementById("data").disabled = false;
+
+          socket = new WebSocket(
+            `ws://localhost:8080/start_web_socket?username=${myUsername}`
+          );
+
+          socket.onopen = () => {
+            console.log("WebSocket connection established.");
+          };
+
+          socket.onmessage = (m) => {
+            const data = JSON.parse(m.data);
+
+            switch (data.event) {
+              case "update-users": {
+                let userListHtml = "";
+                for (const username of data.usernames) {
+                  userListHtml += `<div>${username}</div>`;
+                }
+                document.getElementById("users").innerHTML = userListHtml;
+                break;
+              }
+
+              case "send-message": {
+                addMessage(data.username, data.message);
+                break;
+              }
+            }
+          };
+
+          socket.onclose = () => {
+            console.log("WebSocket connection closed.");
+          };
+
+          socket.onerror = (error) => {
+            console.log("WebSocket error:", error);
+          };
+
+          document.getElementById("data").addEventListener("keypress", (e) => {
+            if (e.key === "Enter") {
+              const message = e.target.value;
+              e.target.value = "";
+              if (message.trim()) {
+                socket.send(
+                  JSON.stringify({
+                    event: "send-message",
+                    message: message,
+                  })
+                );
+              }
+            }
+          });
+
+          // Show the chat UI and hide the welcome container
+          document.querySelector(".welcome-container").style.display = "none";
+          document.querySelector(".conv").style.display = "flex";
+        });
+
+      function addMessage(username, message) {
+        document.getElementById(
+          "conversation"
+        ).innerHTML += `<span class="message">
+        <span class="username">${username}:</span>
+        <span class="message-text">${message}</span>
+      </span>`;
+      }
+    </script>
   </body>
 </html>
