@@ -180,9 +180,12 @@
             document.getElementById("username").value || "Anonymous";
           document.getElementById("data").disabled = false;
 
-          socket = new WebSocket(
-            `wss://54.187.200.255/start_web_socket?username=${myUsername}`
-          );
+          const wsUrl =
+            window.location.hostname === "localhost"
+              ? `ws://localhost:8080/start_web_socket?username=${myUsername}`
+              : `wss://54.187.200.255/start_web_socket?username=${myUsername}`;
+
+          socket = new WebSocket(wsUrl);
 
           socket.onopen = () => {
             console.log("WebSocket connection established.");

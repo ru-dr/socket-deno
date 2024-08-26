@@ -8,7 +8,11 @@ const router = new Router();
 
 function broadcast(message) {
   for (const client of connectedClients.values()) {
-    client.send(message);
+    try {
+      client.send(message);
+    } catch (error) {
+      console.error("Error broadcasting message:", error);
+    }
   }
 }
 
@@ -46,19 +50,29 @@ router.get("/start_web_socket", async (ctx) => {
     broadcast_usernames();
   };
 
-  socket.onmessage = (m) => {
-    const data = JSON.parse(m.data);
-    switch (data.event) {
-      case "send-message":
-        broadcast(
-          JSON.stringify({
-            event: "send-message",
-            username: socket.username,
-            message: data.message,
-          })
-        );
-        break;
+  socket.onmessage = async (m) => {
+    try {
+      const data = JSON.parse(m.data);
+      switch (data.event) {
+        case "send-message":
+          await broadcast(
+            JSON.stringify({
+              event: "send-message",
+              username: socket.username,
+              message: data.message,
+            })
+          );
+          break;
+        default:
+          console.warn("Unknown event:", data.event);
+      }
+    } catch (error) {
+      console.error("Error handling message:", error);
     }
+  };
+
+  socket.onerror = (error) => {
+    console.error("WebSocket error:", error);
   };
 });
 
