@@ -1,0 +1,236 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+
+body {
+  font-family: "Inter", sans-serif;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  background-color: #0b090a;
+  color: #fff;
+}
+
+.welcome-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: "Inter", sans-serif;
+}
+
+.welcome {
+  width: 100%;
+  max-width: 320px;
+  font-family: "Inter", sans-serif;
+  gap: 10px;
+}
+
+.welcome-container .main-title {
+  font-size: 5rem;
+  font-weight: 700;
+  color: #fff;
+  font-family: "Inter", sans-serif;
+}
+
+.welcome-container .welcome {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Inter", sans-serif;
+}
+
+.welcome input {
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  font-size: 1rem;
+  width: 100%;
+  max-width: 320px;
+  font-family: "Inter", sans-serif;
+}
+
+.welcome button {
+  font-family: "Inter", sans-serif;
+  padding: 10px;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #0b090a;
+  font-weight: 700;
+  cursor: pointer;
+  width: 100%;
+  max-width: 320px;
+}
+
+.welcome button:hover {
+  background-color: #fff;
+  color: #0b090a;
+}
+
+/* ===== Conversation ===== */
+
+.conv {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.conv .conn-usrs {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 1rem;
+  padding: 0;
+  margin: 0;
+  color: #fff;
+  background-color: #0b090a;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  padding: 10px;
+  height: 60px;
+  overflow-y: auto;
+}
+
+.conn-usrs .conn-usrs-info {
+  font-family: "Inter", sans-serif;
+  position: sticky;
+  top: 0;
+  font-size: 1rem;
+  color: #bdff00;
+  background-color: #0b090a;
+  font-weight: 700;
+}
+
+#users {
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  color: #fff;
+  font-weight: 400;
+}
+
+#conversation {
+  width: 50vw;
+  height: 50vh;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+  overflow-y: auto;
+  display: flex;
+  font-family: "Inter", sans-serif;
+  flex-direction: column;
+}
+
+#data {
+  width: 50vw;
+  height: auto;
+  font-size: 1rem;
+  padding: 10px;
+  margin: 0;
+  color: #000;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  font-family: "Inter", sans-serif;
+}
+
+/* ===== info ===== */
+
+.info-ts {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 1rem;
+  padding: 0;
+  margin: 0;
+  color: #fff;
+}
+
+.who-is {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  font-size: 1rem;
+  padding: 0;
+  margin: 0;
+  color: #fff;
+}
+
+.who-is a {
+  color: #bdff00;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+/* ===== Media Queries ===== */
+
+@media (max-width: 768px) {
+  /* ===== Welcome-screen ===== */
+
+  .welcome-container .main-title {
+    font-size: 2rem;
+    margin: 20px;
+  }
+
+  .welcome {
+    width: 100%;
+  }
+
+  /* ===== Conversation ===== */
+
+  .conv .conn-usrs {
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    width: calc(100% - 20px);
+    height: auto;
+    max-height: 60px;
+    border: 2px solid #fff;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 5px 10px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    margin: 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: rgba(11, 9, 10, 0.9);
+  }
+
+  .conn-usrs .conn-usrs-info {
+    flex-shrink: 0;
+  }
+
+  #users {
+    display: flex;
+    gap: 10px;
+  }
+
+  #users span {
+    white-space: nowrap;
+  }
+
+  #conversation {
+    width: 90dvw;
+    height: 70dvh;
+  }
+
+  #data {
+    width: 90dvw;
+    height: auto;
+  }
+
+  /* ===== info ===== */
+
+  .info-ts {
+    font-size: 0.8rem;
+  }
+
+  .who-is {
+    font-size: 0.8rem;
+  }
+}
