@@ -138,6 +138,17 @@ body {
   font-family: "Inter", sans-serif;
 }
 
+.message {
+  display: flex;
+  gap: 10px;
+  font-family: "Inter", sans-serif;
+}
+
+.message .username {
+  font-weight: 700;
+  color: #bdff00;
+}
+
 /* ===== info ===== */
 
 .info-ts {
