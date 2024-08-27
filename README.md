@@ -13,7 +13,6 @@ This is a simple WebSocket chat application template built with Deno 🦕 and th
 ## Features ✨
 
 - **Real-time messaging** using WebSockets 📡
-- **Supports multiple chat rooms** 🏠
 - **Displays online users** in each room 👥
 - Powered by **Deno** and the **Oak** web framework 🚀
 
