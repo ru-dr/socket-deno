@@ -5,11 +5,15 @@
 This is a simple WebSocket chat application template built with Deno 🦕 and the Oak 🐿️. It provides a starting point for developing real-time chat applications using WebSockets.
 
 ## Previews 🙈
+
 ### Home Page 🏠
+
 ![Home page](https://cdn.discordapp.com/attachments/1277870023561707643/1277870170429198346/image.png?ex=66cebcd6&is=66cd6b56&hm=17e2d7618a052faf4757bee4d9d7177081db735049237d863ceb7bfbdfbaba7c&)
 
 ### Chat Page 🗣️
+
 ![Chat Page](https://cdn.discordapp.com/attachments/1277870023561707643/1277870075159773194/image.png?ex=66cebcbf&is=66cd6b3f&hm=175acf5a956fcb06f5f5e97f881c2154cc18896c3c3ea2cb50d6b43834aec03a&)
+
 ## Features ✨
 
 - **Real-time messaging** using WebSockets 📡
@@ -78,6 +82,7 @@ To deploy the application on Render:
 4. **Deploy your service** 🚀.
 
 To deploy the application on Deno Deploy:
+
 1. **Push your code to a GitHub repository** 🗂️.
 2. **Connect the repository to your Deno Deploy account** 🔗.
 3. **Select the framework as None**.
@@ -86,7 +91,8 @@ To deploy the application on Deno Deploy:
 
 ### Demo 🌐
 
-You can find a live demo of the application [here](https://socket-deno.onrender.com/).
+- [Socket.io Demo on Render](https://socket-deno.onrender.com/) - Check out the live application in action
+- [Deno Deploy Version](https://socket-d3no.deno.dev/) - See the app running on Deno Deploy
 
 ### Contributing 🤝
 
