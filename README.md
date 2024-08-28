@@ -86,12 +86,12 @@ To deploy the application on Deno Deploy:
 1. **Push your code to a GitHub repository** 🗂️.
 2. **Connect the repository to your Deno Deploy account** 🔗.
 3. **Select the framework as None**.
-4. **Do not any other configurations**.
+4. **Do not change any other configurations**.
 5. **Select the root file as server.js and click deploy 🚀**.
 
 ### Demo 🌐
 
-- [Socket.io Demo on Render](https://socket-deno.onrender.com/) - Check out the live application in action
+- [OnRender Version](https://socket-deno.onrender.com/) - Check out the live application in action
 - [Deno Deploy Version](https://socket-d3no.deno.dev/) - See the app running on Deno Deploy
 
 ### Contributing 🤝
