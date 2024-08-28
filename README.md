@@ -77,6 +77,13 @@ To deploy the application on Render:
 3. **Configure the environment variable and commands** as described above 🛠️.
 4. **Deploy your service** 🚀.
 
+To deploy the application on Deno Deploy:
+1. **Push your code to a GitHub repository** 🗂️.
+2. **Connect the repository to your Deno Deploy account** 🔗.
+3. **Select the framework as None**.
+4. **Do not any other configurations**.
+5. **Select the root file as server.js and click deploy 🚀**.
+
 ### Demo 🌐
 
 You can find a live demo of the application [here](https://socket-deno.onrender.com/).
