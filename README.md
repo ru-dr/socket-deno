@@ -53,7 +53,7 @@ If you want to run the application locally, follow these steps:
 2. **Clone the repository**:
 
    ```sh
-   git clone https://github.com/yourusername/socket-deno-template.git
+   git clone https://github.com/ru-dr/socket-deno.git
    ```
 
 3. **Navigate to the project directory**:
